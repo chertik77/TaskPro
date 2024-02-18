@@ -1,0 +1,23 @@
+name: Check code qualiry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Linting code 🔧
+        run: bun lint
+
+      - name: Checking code formatting 📝
+        run: bun format:check
+
+      - name: Conventional Commits 🔒
+        uses: webiny/action-conventional-commits@v1.1.0

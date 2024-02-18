@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint . -f mo && tsc --noemit",
     "lint:fix": "eslint . --fix -f mo",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "prepare": "husky"
   },
   "dependencies": {
