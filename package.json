@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . -f mo && tsc --noemit",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix -f mo",
     "prepare": "husky"
   },
   "dependencies": {

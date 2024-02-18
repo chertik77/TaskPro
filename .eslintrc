@@ -18,8 +18,8 @@
   },
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
-    "indent": ["error", 4],
     "quotes": ["error", "single"],
+    "react/react-in-jsx-scope": "off",
     "semi": ["error", "never"]
   }
 }
