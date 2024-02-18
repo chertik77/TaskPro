@@ -1,0 +1,33 @@
+diff --git a/node_modules/react-hook-form-persist/dist/index.d.ts b/node_modules/react-hook-form-persist/dist/index.d.ts
+index 5a38196..7dbf5a1 100644
+--- a/node_modules/react-hook-form-persist/dist/index.d.ts
++++ b/node_modules/react-hook-form-persist/dist/index.d.ts
+@@ -7,6 +7,7 @@ interface FormPersistConfig {
+     exclude?: string[];
+     onDataRestored?: (data: any) => void;
+     validate?: boolean;
++    shouldPersist?: boolean;
+     dirty?: boolean;
+     onTimeout?: () => void;
+     timeout?: number;
+diff --git a/node_modules/react-hook-form-persist/dist/index.js b/node_modules/react-hook-form-persist/dist/index.js
+index e904fcb..286cf1a 100644
+--- a/node_modules/react-hook-form-persist/dist/index.js
++++ b/node_modules/react-hook-form-persist/dist/index.js
+@@ -44,6 +44,7 @@ var useFormPersist = (name, {
+   exclude = [],
+   onDataRestored,
+   validate = false,
++  shouldPersist = true,
+   dirty = false,
+   onTimeout,
+   timeout
+@@ -88,7 +89,7 @@ var useFormPersist = (name, {
+       if (timeout !== void 0) {
+         values._timestamp = Date.now();
+       }
+-      getStorage().setItem(name, JSON.stringify(values));
++      shouldPersist && getStorage().setItem(name, JSON.stringify(values));
+     }
+   }, [watchedValues, timeout]);
+   return {

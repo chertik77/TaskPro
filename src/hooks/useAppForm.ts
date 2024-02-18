@@ -26,14 +26,12 @@ export const useAppForm = <T extends FieldValues>(
     mode: 'onChange'
   })
 
-  options &&
-    options.persistedKey &&
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFormPersist(options.persistedKey, {
-      watch,
-      setValue,
-      storage: window.localStorage
-    })
+  useFormPersist(options?.persistedKey as string, {
+    watch,
+    setValue,
+    shouldPersist: !!options?.persistedKey,
+    storage: window.localStorage
+  })
 
   return {
     register,
