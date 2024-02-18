@@ -1,4 +1,4 @@
-name: Check code qualiry
+name: Check code quality
 
 on:
   push:
@@ -12,12 +12,12 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-     - name: Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: Setup bun 🍞
+      - name: Setup bun
         uses: oven-sh/setup-bun@v1
 
       - name: Linting code 🔧
